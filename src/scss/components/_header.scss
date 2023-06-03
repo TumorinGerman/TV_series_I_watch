@@ -1,9 +1,15 @@
 .header_content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  .headerLogo {
+    //временно
+    width: 80px;
+    height: 80px;
+  }
   .header_menu_control {
     display: flex;
     flex-direction: column;
+
     .header_menu_button {
       display: flex;
       justify-content: center;
