@@ -1,10 +1,21 @@
+@import "../variables";
+
 .header_content {
   display: flex;
   justify-content: space-between;
+  background-color: #ff914d;
+  @media (min-width: 48em) {
+    background-color: #ff914d;
+  }
   .headerLogo {
-    //временно
     width: 80px;
     height: 80px;
+    background-size: cover;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   .header_menu_control {
     display: flex;
@@ -16,7 +27,7 @@
       align-items: center;
       border: 0;
       padding: 1.5rem;
-      background-color: white;
+      background-color: #ff914d;
       @media (min-width: 48em) {
         display: none;
       }
@@ -32,7 +43,6 @@
       }
     }
     .header_menu_items {
-      width: 100vw;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -40,7 +50,6 @@
 
       @media (min-width: 48em) {
         border-top: 0px;
-        background-color: #191919;
         height: 100%;
       }
 
@@ -53,10 +62,10 @@
           margin: 10px 0px;
           font-size: 1.5rem;
           a {
-            color: #eeeeef;
+            color: $color_black;
           }
           a:hover {
-            color: white;
+            color: $color_hover_black;
           }
         }
       }

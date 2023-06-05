@@ -3,9 +3,11 @@ import React from "react";
 const HeaderLogo = () => {
   return (
     <div className="headerLogo">
-      <picture>
-        <img src="/img/icons/series.png" alt="site logo" loading="lazy"></img>
-      </picture>
+      <img
+        src="/img/icons/logo_gradient.png"
+        alt="site logo"
+        loading="lazy"
+      ></img>
     </div>
   );
 };
