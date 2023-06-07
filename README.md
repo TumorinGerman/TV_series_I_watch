@@ -1,3 +1,5 @@
+A website to remind you where you finished watching the show. 
+If you have finished watching, it will remind you if there are new episodes or seasons.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
