@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import Main from "./components/Main";
+import Main from "./components/pages/Main/Main";
 import Footer from "./components/Footer";
 import KeepTrack from "./components/pages/KeepTrack/KeepTrack";
 

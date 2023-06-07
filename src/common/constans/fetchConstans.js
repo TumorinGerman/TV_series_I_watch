@@ -1,19 +1,30 @@
 const fetchTypes = {
-  events: "events",
+  ratingList: "ratingList",
+  ratingData: "ratingData",
 };
 
 const fetchOptions = {
-  [fetchTypes.events]: {
+  [fetchTypes.ratingList]: {
     method: "GET",
-    url: "https://api.sportsdata.io/v3/mma/scores/json/Schedule/UFC/2023?key=967261edec3148ac9723bc6b62707786",
+    url: "https://online-movie-database.p.rapidapi.com/title/get-most-popular-tv-shows",
     headers: {
-      "Ocp-Apim-Subscription-Key": "967261edec3148ac9723bc6b62707786",
+      "X-RapidAPI-Key": "cb5fb2d240msh9255a874a270521p1e6d30jsn4eade190b8d3",
+      "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
+    },
+  },
+  [fetchTypes.ratingData]: {
+    method: "GET",
+    url: "https://online-movie-database.p.rapidapi.com/title/get-most-popular-tv-shows",
+    headers: {
+      "X-RapidAPI-Key": "cb5fb2d240msh9255a874a270521p1e6d30jsn4eade190b8d3",
+      "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
     },
   },
 };
 
 const daysNotNeedFetch = {
-  [fetchTypes.events]: 7,
+  [fetchTypes.ratingList]: 30,
+  [fetchTypes.ratingData]: 30,
 };
 
 export { fetchTypes, fetchOptions, daysNotNeedFetch };
