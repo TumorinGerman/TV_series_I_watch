@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
-import fetchDataIfNeed from "../../../common/utils/fetchDataIfNeed";
+import fetchRating from "./utils/fetchRating";
 
 const SeriesCard = () => {
-  const [ratingList, setRatingList] = useState([]);
   const [ratingData, setRatingData] = useState([]);
 
   useEffect(() => {
-    fetchDataIfNeed("ratingList").then((data) => setRatingList(data));
+    fetchRating().then((data) => console.log(data));
   }, []);
-
-  useEffect(() => {
-    if (ratingList.length > 0) {
-      const arrayOfImdbIds = ratingList.map((path) => path.split("/").at(2));
-      console.log(arrayOfImdbIds);
-    }
-  }, [ratingList]);
 
   return (
     <Container fluid>

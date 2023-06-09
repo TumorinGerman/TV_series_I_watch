@@ -1,12 +1,9 @@
 import axios from "axios";
 import dayjs from "dayjs";
 
-import {
-  fetchOptions,
-  daysNotNeedFetch,
-} from "../../common/constans/fetchConstans";
+import { fetchOptions, daysNotNeedFetch } from "../constans/fetchConstans";
 
-const fetchDataIfNeed = async (fetchType) => {
+const fetchDataIfNeed = async (fetchType, imdbId) => {
   const daysLimit = daysNotNeedFetch[fetchType]
     ? daysNotNeedFetch[fetchType]
     : 0;
@@ -26,4 +23,13 @@ const fetchDataIfNeed = async (fetchType) => {
   }
 };
 
-export default fetchDataIfNeed;
+const fetchDataById = async (fetchType, imdbId) => {
+  const fetchOption = fetchOptions[fetchType];
+  if (imdbId) {
+    fetchOption.params.seriesid = imdbId;
+  }
+  const response = await axios.request(fetchOption);
+  return response.data;
+};
+
+export { fetchDataIfNeed, fetchDataById };
