@@ -3,16 +3,26 @@ import dayjs from "dayjs";
 
 import { fetchOptions, daysNotNeedFetch } from "../constans/fetchConstans";
 
-const fetchDataIfNeed = async (fetchType, imdbId) => {
+const IsFetchingDataNeeds = (fetchType) => {
   const daysLimit = daysNotNeedFetch[fetchType]
     ? daysNotNeedFetch[fetchType]
     : 0;
+  let dateOfLastFetching = localStorage.getItem(`dateFetching${fetchType}`);
+  const now = dayjs();
+  const diffDayFetchingAndNow = now.diff(dateOfLastFetching, "day");
+  return !dateOfLastFetching || diffDayFetchingAndNow >= daysLimit
+    ? true
+    : false;
+};
+
+const fetchDataByList = async (fetchType, listImdbIds) => {
   const fetchOption = fetchOptions[fetchType];
+  if (listImdbIds) {
+    fetchOption.params.idsList = listImdbIds;
+  }
+  const now = dayjs();
   try {
-    let dateOfLastFetching = localStorage.getItem(`dateFetching${fetchType}`);
-    const now = dayjs();
-    const diffDayFetchingAndNow = now.diff(dateOfLastFetching, "day");
-    if (!dateOfLastFetching || diffDayFetchingAndNow >= daysLimit) {
+    if (IsFetchingDataNeeds(fetchType)) {
       const response = await axios.request(fetchOption);
       localStorage.setItem(`${fetchType}`, JSON.stringify(response.data));
       localStorage.setItem(`dateFetching${fetchType}`, now);
@@ -26,10 +36,10 @@ const fetchDataIfNeed = async (fetchType, imdbId) => {
 const fetchDataById = async (fetchType, imdbId) => {
   const fetchOption = fetchOptions[fetchType];
   if (imdbId) {
-    fetchOption.params.seriesid = imdbId;
+    fetchOption.params.i = imdbId;
   }
   const response = await axios.request(fetchOption);
   return response.data;
 };
 
-export { fetchDataIfNeed, fetchDataById };
+export { fetchDataByList, fetchDataById, IsFetchingDataNeeds };

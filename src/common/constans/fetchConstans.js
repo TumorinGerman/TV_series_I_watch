@@ -1,6 +1,7 @@
 const fetchTypes = {
   ratingList: "ratingList",
   ratingData: "ratingData",
+  omdbapi: "omdbapi",
 };
 
 const fetchOptions = {
@@ -14,21 +15,16 @@ const fetchOptions = {
   },
   [fetchTypes.ratingData]: {
     method: "GET",
-    url: "https://movies-tv-shows-database.p.rapidapi.com/",
+    url: "http://www.omdbapi.com/?apikey=7efcea3d&",
     params: {
-      seriesid: "",
-    },
-    headers: {
-      Type: "get-show-details",
-      "X-RapidAPI-Key": "cb5fb2d240msh9255a874a270521p1e6d30jsn4eade190b8d3",
-      "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com",
+      i: "",
     },
   },
 };
 
 const daysNotNeedFetch = {
   [fetchTypes.ratingList]: 30,
-  [fetchTypes.ratingData]: 0,
+  [fetchTypes.ratingData]: 30,
 };
 
 export { fetchTypes, fetchOptions, daysNotNeedFetch };
