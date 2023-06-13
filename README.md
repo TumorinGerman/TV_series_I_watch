@@ -1,3 +1,4 @@
+During the development of the site used the principle "mobile first".
 # Goal of the project
 A website to remind you where you finished watching the show. 
 If you have finished watching, it will remind you if there are new episodes or seasons.
@@ -7,7 +8,6 @@ If you have finished watching, it will remind you if there are new episodes or s
 - React Router
 - React bootstrap
 - SCSS
-During the development of the site used the principle "mobile first".
 
 
 
