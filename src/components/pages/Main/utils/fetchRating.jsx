@@ -10,7 +10,7 @@ const fetchRating = async () => {
   if (!ratingList || ratingList.length === 0) return;
   const arrayOfImdbIds = ratingList
     .map((path) => path.split("/").at(2))
-    .slice(0, 10);
+    .slice(0, 20);
 
   const now = dayjs();
   try {

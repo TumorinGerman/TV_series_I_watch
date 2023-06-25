@@ -17,15 +17,7 @@ const Rating = () => {
       <div className="series_cards">
         <CardGroup>
           <Container fluid>
-            <Row
-              xs={2}
-              sm={3}
-              md={4}
-              lg={5}
-              xl={6}
-              xxl={"auto"}
-              className="g-4"
-            >
+            <Row xs={2} sm={3} md={4} lg={5} xl={6} xxl={8} className="g-4">
               {ratingData.map(({ Title, Poster, Plot, imdbRating }, idx) => (
                 <Col key={idx}>
                   <SeriesCard
