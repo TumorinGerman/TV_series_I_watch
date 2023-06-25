@@ -23,8 +23,8 @@ const fetchOptions = {
 };
 
 const daysNotNeedFetch = {
-  [fetchTypes.ratingList]: 30,
-  [fetchTypes.ratingData]: 30,
+  [fetchTypes.ratingList]: 20,
+  [fetchTypes.ratingData]: 10,
 };
 
 export { fetchTypes, fetchOptions, daysNotNeedFetch };
