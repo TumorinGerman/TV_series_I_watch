@@ -1,0 +1,18 @@
+.wrapper {
+  background-color: $bg;
+  width: 100vw;
+  height: 100vh;
+
+  .signIn_container {
+    width: 300px;
+    margin: 0 auto;
+
+    .signIn_form {
+      padding-top: 10%;
+
+      img {
+        fill: white;
+      }
+    }
+  }
+}
