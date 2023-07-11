@@ -8,10 +8,53 @@
     margin: 0 auto;
 
     .signIn_form {
+      position: relative;
       padding-top: 10%;
 
-      img {
-        fill: white;
+      label {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
+        padding: 7px;
+        left: 5px;
+        &::after {
+          content: "";
+          width: 1px;
+          height: 30px;
+          position: absolute;
+          background: $border;
+          top: 0px;
+          left: 100%;
+        }
+        svg {
+          box-sizing: border-box;
+        }
+      }
+      input {
+        width: 100%;
+        padding: 5px;
+        height: 40px;
+        border-radius: 3px;
+        margin: 5px 0;
+        outline: none;
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border: 1px solid white;
+        box-shadow: none;
+      }
+      input[type="text"] {
+        background: transparent;
+        border: 2px solid $border;
+        padding-left: 45px;
+        color: $button;
+      }
+      input[type="password"] {
+        background: transparent;
+        border: 2px solid $border;
+        padding-left: 45px;
+        color: $button;
       }
     }
   }
