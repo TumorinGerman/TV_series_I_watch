@@ -1,8 +1,23 @@
-import React from "react";
+import { React, useState } from "react";
 import { ReactComponent as UserIcon } from "../assets/icons/person.svg";
 import { ReactComponent as PasswordIcon } from "../assets/icons/password.svg";
 
 const SignInForm = () => {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleChange = (e) => {
+    const target = e.target;
+    const value = target.value;
+    // const name = target.name;
+    setUser(value);
+  };
+
+  // handleSubmit(event) {
+  //   alert('Submit');
+  //   event.preventDefault();
+  // }
+
   return (
     <div className="wrapper">
       <div className="signIn_container">
@@ -12,11 +27,13 @@ const SignInForm = () => {
               <UserIcon />
             </label>
             <input
-              className="user_input"
+              className="input_user"
               type="text"
               name="name"
               id="name"
               placeholder="Name"
+              value={user}
+              onChange={handleChange}
             />
           </div>
           <div className="password">
@@ -26,9 +43,10 @@ const SignInForm = () => {
             <input
               className="input_password"
               type="password"
-              name="name"
-              id="input_password"
+              name="password"
+              id="password"
               placeholder="Password"
+              // onChange={handleChange}
             />
           </div>
           <div>
