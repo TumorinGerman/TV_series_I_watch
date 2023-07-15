@@ -16,8 +16,7 @@
         width: 30px;
         height: 30px;
         margin-top: 10px;
-        padding: 7px;
-        left: 5px;
+        margin-left: 10px;
         &::after {
           content: "";
           width: 1px;
@@ -55,6 +54,22 @@
         border: 2px solid $border;
         padding-left: 45px;
         color: $button;
+      }
+      .submit_by_name {
+        background: $button;
+        border: none;
+        color: white;
+        text-align: center;
+        font-size: 0.8em;
+        cursor: pointer;
+      }
+      .submit_by_google {
+        background: white;
+        border: none;
+        color: $color_black;
+        text-align: center;
+        font-size: 0.8em;
+        cursor: pointer;
       }
     }
   }

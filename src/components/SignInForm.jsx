@@ -31,6 +31,14 @@ const SignInForm = () => {
               placeholder="Password"
             />
           </div>
+          <div>
+            <input className="submit_by_name" type="submit" value="Sign in" />
+            <input
+              className="submit_by_google"
+              type="submit"
+              value="Sign in with Google"
+            />
+          </div>
         </form>
       </div>
     </div>
