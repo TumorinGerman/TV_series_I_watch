@@ -7,6 +7,7 @@ If you have finished watching, it will remind you if there are new episodes or s
 - React
 - React Router
 - React bootstrap
+- React hook form
 - SCSS
 
 
