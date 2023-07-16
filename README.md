@@ -1,3 +1,4 @@
+Developing in process.
 During the development of the site used the principle "mobile first".
 # Goal of the project
 A website to remind you where you finished watching the show. 
