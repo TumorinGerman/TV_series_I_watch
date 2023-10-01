@@ -6,6 +6,14 @@
   .signIn_container {
     width: 300px;
     margin: 0 auto;
+    input {
+      width: 100%;
+      padding: 5px;
+      height: 40px;
+      border-radius: 3px;
+      margin: 5px 0;
+      outline: none;
+    }
 
     .signIn_form {
       position: relative;
@@ -44,14 +52,6 @@
           box-sizing: border-box;
         }
       }
-      input {
-        width: 100%;
-        padding: 5px;
-        height: 40px;
-        border-radius: 3px;
-        margin: 5px 0;
-        outline: none;
-      }
       input[type="text"]:focus,
       input[type="password"]:focus {
         border: 1px solid white;
@@ -81,6 +81,42 @@
         background: white;
         border: none;
         color: $color_black;
+        text-align: center;
+        font-size: 0.8em;
+        cursor: pointer;
+      }
+    }
+    .create_new {
+      p {
+        text-align: center;
+        margin: 10px 0;
+        span {
+          color: white;
+          position: relative;
+        }
+        span::before,
+        span::after {
+          border-top: 0.5px solid white;
+          content: "";
+          position: absolute;
+          height: 5px;
+          top: 50%;
+          width: 100%;
+        }
+        span::before {
+          right: 100%;
+          margin-right: 15px;
+        }
+        span::after {
+          left: 100%;
+          margin-left: 15px;
+        }
+      }
+
+      .create_new_user {
+        background: $button;
+        border: none;
+        color: white;
         text-align: center;
         font-size: 0.8em;
         cursor: pointer;

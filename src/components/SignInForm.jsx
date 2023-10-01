@@ -16,16 +16,6 @@ const SignInForm = () => {
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const handleChange = (e) => {
-  //   const target = e.target;
-  //   const value = target.value;
-  //   const name = target.name;
-  //   name === "email" ? setEmail(value) : setPassword(value);
-  // };
 
   return (
     <div className="wrapper">
@@ -53,8 +43,6 @@ const SignInForm = () => {
                 name="UserName"
                 id="UserName"
                 placeholder="Name"
-                // value={name}
-                // onChange={handleChange}
               />
               <ErrorMessage
                 errors={errors}
@@ -80,8 +68,6 @@ const SignInForm = () => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                // value={email}
-                // onChange={handleChange}
               />
               <ErrorMessage
                 errors={errors}
@@ -106,8 +92,6 @@ const SignInForm = () => {
                 name="password"
                 id="password"
                 placeholder="Password"
-                // value={password}
-                // onChange={handleChange}
               />
               <ErrorMessage
                 errors={errors}
@@ -125,6 +109,16 @@ const SignInForm = () => {
             />
           </div>
         </form>
+        <div className="create_new">
+          <p>
+            <span>or</span>
+          </p>
+          <input
+            className="create_new_user"
+            type="submit"
+            value="Create a new account"
+          />
+        </div>
       </div>
     </div>
   );
