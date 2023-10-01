@@ -11,6 +11,15 @@
       position: relative;
       padding-top: 10%;
 
+      p {
+        color: #bf1650;
+      }
+
+      p::before {
+        display: inline;
+        content: "⚠ ";
+      }
+
       span {
         color: red;
         font-size: 0.7rem;

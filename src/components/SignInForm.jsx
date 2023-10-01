@@ -1,5 +1,6 @@
 import { React } from "react";
 import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
 
 import { ReactComponent as UserIcon } from "../assets/icons/person.svg";
 import { ReactComponent as PasswordIcon } from "../assets/icons/password.svg";
@@ -13,7 +14,6 @@ const SignInForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("RESULT", data);
     alert(JSON.stringify(data));
   };
   // const [name, setName] = useState("");
@@ -30,24 +30,37 @@ const SignInForm = () => {
   return (
     <div className="wrapper">
       <div className="signIn_container">
-        <form className="signIn_form" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="signIn_form"
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+        >
           <div className="user_info">
             <div className="user_name">
               <label className="label_name">
                 <UserIcon />
               </label>
               <input
-                {...register("name", { required: true, maxLength: 20 })}
-                aria-invalid={errors.name ? "true" : "false"}
-                className="input_name"
+                {...register("UserName", {
+                  required: "UserName is required.",
+                  maxLength: {
+                    value: 20,
+                    message: "To long Name",
+                  },
+                })}
+                className="input_UserName"
                 type="text"
-                name="name"
-                id="name"
+                name="UserName"
+                id="UserName"
                 placeholder="Name"
                 // value={name}
                 // onChange={handleChange}
               />
-              {errors.name && <p role="alert">{errors.name?.message}</p>}
+              <ErrorMessage
+                errors={errors}
+                name="UserName"
+                render={({ message }) => <p>{message}</p>}
+              />
             </div>
             <div className="user_email">
               <label className="label_email">
@@ -55,9 +68,12 @@ const SignInForm = () => {
               </label>
               <input
                 {...register("email", {
-                  required: true,
-                  pattern:
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  required: "Email is required.",
+                  pattern: {
+                    value:
+                      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    message: "Not correct Email format.",
+                  },
                 })}
                 className="input_email"
                 type="text"
@@ -67,7 +83,11 @@ const SignInForm = () => {
                 // value={email}
                 // onChange={handleChange}
               />
-              {errors.email && <p role="alert">{errors.email?.message}</p>}
+              <ErrorMessage
+                errors={errors}
+                name="email"
+                render={({ message }) => <p>{message}</p>}
+              />
             </div>
             <div className="user_password">
               <label className="label_password">
@@ -75,9 +95,11 @@ const SignInForm = () => {
               </label>
               <input
                 {...register("password", {
-                  required: true,
-                  minLength: 6,
-                  maxLength: 20,
+                  required: "Password is required.",
+                  minLength: {
+                    value: 6,
+                    message: "Password must exceed 6 characters",
+                  },
                 })}
                 className="input_password"
                 type="password"
@@ -87,9 +109,11 @@ const SignInForm = () => {
                 // value={password}
                 // onChange={handleChange}
               />
-              {errors.password && (
-                <p role="alert">{errors.password?.message}</p>
-              )}
+              <ErrorMessage
+                errors={errors}
+                name="password"
+                render={({ message }) => <p>{message}</p>}
+              />
             </div>
           </div>
           <div>
