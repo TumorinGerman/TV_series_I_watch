@@ -4,7 +4,8 @@ import Header from "./components/Header";
 import Main from "./components/pages/Main/Main";
 import Footer from "./components/Footer";
 import KeepTrack from "./components/pages/KeepTrack/KeepTrack";
-import SignInForm from "./components/SignInForm";
+import SignInForm from "./components/pages/SignIn/SignInForm";
+import CreateNewAccount from "./components/pages/SignIn/CreateNewAccount";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/keepTrack" element={<KeepTrack />} />
         <Route path="/loginForm" element={<SignInForm />} />
+        <Route path="/createNewAcc" element={<CreateNewAccount />} />
       </Routes>
       <Footer />
     </>

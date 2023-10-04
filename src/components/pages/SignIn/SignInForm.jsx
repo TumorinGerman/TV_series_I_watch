@@ -1,10 +1,10 @@
 import { React } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
-import { ReactComponent as UserIcon } from "../assets/icons/person.svg";
-import { ReactComponent as PasswordIcon } from "../assets/icons/password.svg";
-import { ReactComponent as EmailIcon } from "../assets/icons/email.svg";
+import { ReactComponent as PasswordIcon } from "../../../assets/icons/password.svg";
+import { ReactComponent as EmailIcon } from "../../../assets/icons/email.svg";
 
 const SignInForm = () => {
   const {
@@ -26,30 +26,6 @@ const SignInForm = () => {
           noValidate
         >
           <div className="user_info">
-            <div className="user_name">
-              <label className="label_name">
-                <UserIcon />
-              </label>
-              <input
-                {...register("UserName", {
-                  required: "UserName is required.",
-                  maxLength: {
-                    value: 20,
-                    message: "To long Name",
-                  },
-                })}
-                className="input_UserName"
-                type="text"
-                name="UserName"
-                id="UserName"
-                placeholder="Name"
-              />
-              <ErrorMessage
-                errors={errors}
-                name="UserName"
-                render={({ message }) => <p>{message}</p>}
-              />
-            </div>
             <div className="user_email">
               <label className="label_email">
                 <EmailIcon />
@@ -113,11 +89,9 @@ const SignInForm = () => {
           <p>
             <span>or</span>
           </p>
-          <input
-            className="create_new_user"
-            type="submit"
-            value="Create a new account"
-          />
+          <Link className="create_new_user" to="/createNewAcc">
+            Create a new account
+          </Link>
         </div>
       </div>
     </div>
