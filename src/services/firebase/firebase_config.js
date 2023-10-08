@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore/lite";
-import "firebaseui/dist/firebaseui.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDon0doLOgI6vSg1HPDov-3ywG1-actRoQ",

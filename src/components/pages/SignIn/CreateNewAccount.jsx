@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
+import createNewUser from "../../../services/firebase/utils/createNewUser";
+
 const CreateNewAccount = () => {
   const {
     register,
@@ -9,8 +11,9 @@ const CreateNewAccount = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+  const onSubmit = ({ userName, email, password }) => {
+    const user = createNewUser(userName, email, password);
+    console.log(user);
   };
 
   return (
@@ -23,7 +26,7 @@ const CreateNewAccount = () => {
         <div className="user_info">
           <div className="user_name">
             <input
-              {...register("UserName", {
+              {...register("userName", {
                 required: "UserName is required.",
                 maxLength: {
                   value: 20,
@@ -32,13 +35,13 @@ const CreateNewAccount = () => {
               })}
               className="input_UserName"
               type="text"
-              name="UserName"
-              id="UserName"
+              name="userName"
+              id="userName"
               placeholder="Name"
             />
             <ErrorMessage
               errors={errors}
-              name="UserName"
+              name="userName"
               render={({ message }) => <p>{message}</p>}
             />
           </div>
