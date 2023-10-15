@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { React, useState } from "react";
 
 import Header from "./components/Header";
 import Main from "./components/pages/Main/Main";
@@ -6,19 +7,27 @@ import Footer from "./components/Footer";
 import KeepTrack from "./components/pages/KeepTrack/KeepTrack";
 import SignInForm from "./components/pages/SignIn/SignInForm";
 import CreateNewAccount from "./components/pages/SignIn/CreateNewAccount";
+import UserStateContext from "./context";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
   return (
-    <>
+    <UserStateContext.Provider
+      value={{
+        currentUser,
+        setCurrentUser,
+      }}
+    >
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/keepTrack" element={<KeepTrack />} />
         <Route path="/loginForm" element={<SignInForm />} />
+        <Route path="/logOut" element={<SignInForm />} />
         <Route path="/createNewAcc" element={<CreateNewAccount />} />
       </Routes>
       <Footer />
-    </>
+    </UserStateContext.Provider>
   );
 }
 

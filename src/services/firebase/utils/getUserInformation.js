@@ -1,15 +1,17 @@
-import { doc, getDoc } from "firebase/firestore/lite";
-import { db } from "../firebase_config";
+import { auth } from "../firebase_config";
 
-const getUserInformation = async (docId) => {
-  const docRef = doc(db, "users", docId);
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    return docSnap.data();
-  } else {
-    // doc.data() will be undefined in this case
-    console.log("No such document!");
-  }
+const getUserInformation = () => {
+  const user = auth.currentUser;
+  return user !== null ? user.displayName : null;
+  // The user object has basic properties such as display name, email, etc.
+  /*  const email = user.email;
+    const photoURL = user.photoURL;
+    const emailVerified = user.emailVerified;
+  
+    // The user's ID, unique to the Firebase project. Do NOT use
+    // this value to authenticate with your backend server, if
+    // you have one. Use User.getToken() instead.
+    const uid = user.uid; */
 };
 
 export default getUserInformation;

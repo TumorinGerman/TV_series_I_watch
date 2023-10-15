@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+// import { onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore/lite";
-import isUserLogined from "./utils/isUserLogined";
+// import userStateChangeHandler from "./utils/userStateChangeHandler";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDon0doLOgI6vSg1HPDov-3ywG1-actRoQ",
@@ -17,4 +18,4 @@ export const db = getFirestore(app);
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
-onAuthStateChanged(auth, isUserLogined);
+// onAuthStateChanged(auth, userStateChangeHandler);

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
-import loginUser from "../../../services/firebase/utils/loginUserWithEmail";
+import loginUserWithEmail from "../../../services/firebase/utils/loginUserWithEmail";
 import { ReactComponent as PasswordIcon } from "../../../assets/icons/password.svg";
 import { ReactComponent as EmailIcon } from "../../../assets/icons/email.svg";
 
@@ -15,7 +15,7 @@ const SignInForm = () => {
   } = useForm();
 
   const onSubmit = async ({ email, password }) => {
-    const resultOfLogining = await loginUser(email, password);
+    const resultOfLogining = await loginUserWithEmail(email, password);
   };
 
   return (

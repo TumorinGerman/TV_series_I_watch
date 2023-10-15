@@ -1,4 +1,4 @@
-const isUserLogined = (user) => {
+const userStateChangeHandler = (user) => {
   if (user) {
     console.log(user);
     // User is signed in, see docs for a list of available properties
@@ -10,4 +10,4 @@ const isUserLogined = (user) => {
   }
 };
 
-export default isUserLogined;
+export default userStateChangeHandler;

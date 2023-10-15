@@ -1,10 +1,18 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserStateContext from "../context";
 
 const HeaderLogin = () => {
+  const { currentUser } = useContext(UserStateContext);
+  console.log(currentUser);
+
   return (
     <div className="headerLogin">
-      <Link to="/loginForm">Sign In</Link>
+      {!currentUser ? (
+        <Link to="/loginForm">Sign In</Link>
+      ) : (
+        <Link to="/logOut">LogOut</Link>
+      )}
     </div>
   );
 };
