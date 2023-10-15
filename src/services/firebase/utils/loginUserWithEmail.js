@@ -6,14 +6,12 @@ const loginUserWithEmail = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      return user;
+      return { result: true, data: user };
     })
     .catch((error) => {
-      const errorCode = error.code;
+      // const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode);
-      alert(errorMessage);
-      return null;
+      return { result: false, data: errorMessage };
     });
 };
 

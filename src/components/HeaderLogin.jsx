@@ -4,7 +4,6 @@ import UserStateContext from "../context";
 
 const HeaderLogin = () => {
   const { currentUser } = useContext(UserStateContext);
-  console.log(currentUser);
 
   return (
     <div className="headerLogin">
