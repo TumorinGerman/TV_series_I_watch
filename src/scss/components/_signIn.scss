@@ -6,6 +6,7 @@
   .signIn_container {
     width: 300px;
     margin: 0 auto;
+    padding-top: 20px;
     input,
     a {
       width: 100%;
@@ -18,7 +19,6 @@
 
     .signIn_form {
       position: relative;
-      padding-top: 10%;
 
       p {
         color: #bf1650;

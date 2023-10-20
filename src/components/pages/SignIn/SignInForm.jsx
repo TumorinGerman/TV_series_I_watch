@@ -6,13 +6,13 @@ import { ErrorMessage } from "@hookform/error-message";
 import loginUserWithEmail from "../../../services/firebase/utils/loginUserWithEmail";
 import { ReactComponent as PasswordIcon } from "../../../assets/icons/password.svg";
 import { ReactComponent as EmailIcon } from "../../../assets/icons/email.svg";
-import AlertMessage from "../../AlertMessage";
+import AlertMessage from "../../common/AlertMessage";
 import UserStateContext from "../../../context";
 
 const SignInForm = () => {
   const [showAlert, setShowAlert] = useState(false);
-  let message = "";
-  const { currentUser, setCurrentUser } = useContext(UserStateContext);
+  const [alertMessage, setAlertMessage] = useState();
+  const { setCurrentUser } = useContext(UserStateContext);
   const {
     register,
     handleSubmit,
@@ -24,8 +24,7 @@ const SignInForm = () => {
     if (result) {
       setCurrentUser(data);
     } else {
-      message = data;
-      console.log(message);
+      setAlertMessage(data);
       setShowAlert(true);
     }
   };
@@ -35,7 +34,7 @@ const SignInForm = () => {
       <div className="signIn_container">
         {showAlert ? (
           <AlertMessage
-            message={message}
+            message={alertMessage}
             showAlert={showAlert}
             setShowAlert={setShowAlert}
           />

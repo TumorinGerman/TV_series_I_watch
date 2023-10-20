@@ -1,6 +1,7 @@
 import Alert from "react-bootstrap/Alert";
 
 function AlertMessage({ message, showAlert, setShowAlert }) {
+  console.log(message);
   if (showAlert) {
     return (
       <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
