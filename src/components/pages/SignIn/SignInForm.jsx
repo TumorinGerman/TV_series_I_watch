@@ -1,5 +1,5 @@
 import { React, useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
@@ -18,11 +18,13 @@ const SignInForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async ({ email, password }) => {
     const { result, data } = await loginUserWithEmail(email, password);
     if (result) {
       setCurrentUser(data);
+      navigate("/");
     } else {
       setAlertMessage(data);
       setShowAlert(true);

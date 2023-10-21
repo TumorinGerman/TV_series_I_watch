@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import KeepTrack from "./components/pages/KeepTrack/KeepTrack";
 import SignInForm from "./components/pages/SignIn/SignInForm";
 import CreateNewAccount from "./components/pages/SignIn/CreateNewAccount";
+import ModalWindowLogout from "./components/common/ModalWindowLogout";
+
 import UserStateContext from "./context";
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/keepTrack" element={<KeepTrack />} />
         <Route path="/loginForm" element={<SignInForm />} />
-        <Route path="/logOut" element={<SignInForm />} />
+        <Route path="/logOut" element={<ModalWindowLogout />} />
         <Route path="/createNewAcc" element={<CreateNewAccount />} />
       </Routes>
       <Footer />
