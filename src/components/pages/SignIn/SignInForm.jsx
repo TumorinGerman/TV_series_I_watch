@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
 import loginUserWithEmail from "../../../services/firebase/utils/loginUserWithEmail";
+import loginUserWithGoogleAuth from "../../../services/firebase/utils/loginUserWithGoogleAuth";
 import { ReactComponent as PasswordIcon } from "../../../assets/icons/password.svg";
 import { ReactComponent as EmailIcon } from "../../../assets/icons/email.svg";
 import AlertMessage from "../../common/AlertMessage";
@@ -23,6 +24,18 @@ const SignInForm = () => {
   const onSubmit = async ({ email, password }) => {
     const { result, data } = await loginUserWithEmail(email, password);
     if (result) {
+      setCurrentUser(data);
+      navigate("/");
+    } else {
+      setAlertMessage(data);
+      setShowAlert(true);
+    }
+  };
+
+  const handleGoogleSiginButton = async () => {
+    const { result, data } = await loginUserWithGoogleAuth();
+    if (result) {
+      console.log("user", data);
       setCurrentUser(data);
       navigate("/");
     } else {
@@ -104,13 +117,14 @@ const SignInForm = () => {
                   type="submit"
                   value="Sign in"
                 />
-                <input
-                  className="submit_by_google"
-                  type="submit"
-                  value="Sign in with Google"
-                />
               </div>
             </form>
+            <input
+              className="submit_by_google"
+              type="submit"
+              value="Sign in with Google"
+              onClick={handleGoogleSiginButton}
+            />
             <div className="create_new">
               <p>
                 <span>or</span>
