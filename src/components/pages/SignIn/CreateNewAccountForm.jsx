@@ -1,20 +1,32 @@
-import React from "react";
+import { React, useContext } from "react";
 
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
 import createNewUser from "../../../services/firebase/utils/createNewUser";
+import UserStateContext from "../../../context";
 
-const CreateNewAccountForm = ({ setUserCreated }) => {
+const CreateNewAccountForm = ({
+  setUserCreated,
+  setAlertMessage,
+  setShowAlert,
+}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { setCurrentUser } = useContext(UserStateContext);
 
   const onSubmit = async ({ userName, email, password }) => {
-    const user = await createNewUser(userName, email, password);
-    user !== null && setUserCreated(true);
+    const { result, data } = await createNewUser(userName, email, password);
+    if (result) {
+      setCurrentUser(data);
+      setUserCreated(true);
+    } else {
+      setAlertMessage(data);
+      setShowAlert(true);
+    }
   };
 
   return (
