@@ -1,6 +1,7 @@
 const fetchTypes = {
   ratingList: "ratingList",
   ratingData: "ratingData",
+  findSeriesByTitle: "findSeriesByTitle",
   omdbapi: "omdbapi",
 };
 
@@ -18,6 +19,14 @@ const fetchOptions = {
     url: "http://www.omdbapi.com/?apikey=7efcea3d&",
     params: {
       i: "",
+    },
+  },
+  [fetchTypes.findSeriesByTitle]: {
+    method: "GET",
+    url: "http://www.omdbapi.com/?apikey=7efcea3d&",
+    params: {
+      t: "",
+      type: "series",
     },
   },
 };

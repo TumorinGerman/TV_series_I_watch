@@ -42,4 +42,18 @@ const fetchDataById = async (fetchType, imdbId) => {
   return response.data;
 };
 
-export { fetchDataByList, fetchDataById, IsFetchingDataNeeds };
+const fetchSeriesByTitle = async (fetchType, title) => {
+  const fetchOption = fetchOptions[fetchType];
+  if (title) {
+    fetchOption.params.t = title;
+  }
+  const response = await axios.request(fetchOption);
+  return response.data;
+};
+
+export {
+  fetchDataByList,
+  fetchDataById,
+  IsFetchingDataNeeds,
+  fetchSeriesByTitle,
+};

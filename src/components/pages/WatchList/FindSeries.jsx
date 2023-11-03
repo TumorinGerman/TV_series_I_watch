@@ -1,27 +1,28 @@
-import { React, useId, useState } from "react";
+import { React, useId, useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
+import { fetchSeriesByTitle } from "../../../common/utils/fetchData";
 
 const FindSerias = () => {
   const seriesSelectId = useId();
-  const [selectedSeries, setSelectedSeries] = useState();
   const [seriesTitle, setSeriesTitle] = useState("");
+
+  useEffect(() => {
+    fetchSeriesByTitle("findSeriesByTitle", seriesTitle).then((data) =>
+      console.log(data)
+    );
+  }, [seriesTitle]);
+
   console.log("seriesTitle", seriesTitle);
-  console.log("selectedSeries", selectedSeries);
   return (
     <div className="findSeries_container">
-      <label htmlFor={seriesSelectId}>Pick a TV shows:</label>
-      <Form.Select
+      <label htmlFor={seriesSelectId}>Find a TV shows:</label>
+      <Form.Control
         id={seriesSelectId}
-        name="seriesSelectId"
-        defaultValue={seriesTitle}
-        value={seriesTitle}
-        onChange={(e) => setSelectedSeries(e.target.value)}
-      >
-        <option></option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </Form.Select>
+        name="seriesTitle"
+        type="text"
+        placeholder="Start write series title here"
+        onChange={(e) => setSeriesTitle(e.target.value)}
+      />
     </div>
   );
 };
