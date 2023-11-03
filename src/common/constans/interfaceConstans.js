@@ -1,6 +1,7 @@
 const menuItems = [
-  { id: 0, nameOfsection: "watchlist", path: "/" },
-  { id: 1, nameOfsection: "keep track", path: "/keepTrack" },
+  { id: 0, nameOfsection: "home", path: "/" },
+  { id: 1, nameOfsection: "watchlist", path: "/watchList" },
+  { id: 2, nameOfsection: "keep track", path: "/keepTrack" },
 ];
 
 export { menuItems };

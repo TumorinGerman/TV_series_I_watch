@@ -1,0 +1,18 @@
+.wrapper {
+  background-color: $bg;
+  width: 100vw;
+  height: 100vh;
+
+  .findSeries_container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    @media (min-width: 48em) {
+      width: 50%;
+    }
+    label {
+      color: white;
+    }
+  }
+}

@@ -29,7 +29,7 @@ const ModalWindowLogout = () => {
       });
   };
   return (
-    <Modal show={show} size="sm">
+    <Modal show={show} variant="warning" size="sm">
       <Modal.Header>
         <Modal.Title>Warning!</Modal.Title>
       </Modal.Header>
