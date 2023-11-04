@@ -3,15 +3,38 @@
   width: 100vw;
   height: 100vh;
 
-  .findSeries_container {
+  .watchList_container {
     width: 80%;
     margin: 0 auto;
     padding: 20px 0;
     @media (min-width: 48em) {
       width: 50%;
     }
-    label {
+    .findSeries_container {
+      label {
+        color: white;
+      }
+    }
+    .searchResult_container {
+      display: flex;
       color: white;
+      padding: 20px 0;
+      font-size: 0.875rem;
+      .poster {
+        img {
+          max-width: 100px;
+        }
+      }
+      .info {
+        margin-left: 10px;
+        .imdb_logo {
+          display: flex;
+          width: 20px;
+          img {
+            margin-right: 10px;
+          }
+        }
+      }
     }
   }
 }

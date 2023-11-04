@@ -2,6 +2,7 @@ const fetchTypes = {
   ratingList: "ratingList",
   ratingData: "ratingData",
   findSeriesByTitle: "findSeriesByTitle",
+  poster: "poster",
   omdbapi: "omdbapi",
 };
 
@@ -24,6 +25,14 @@ const fetchOptions = {
   [fetchTypes.findSeriesByTitle]: {
     method: "GET",
     url: "http://www.omdbapi.com/?apikey=7efcea3d&",
+    params: {
+      t: "",
+      type: "series",
+    },
+  },
+  [fetchTypes.poster]: {
+    method: "GET",
+    url: "http://img.omdbapi.com/?apikey=7efcea3d&",
     params: {
       t: "",
       type: "series",
