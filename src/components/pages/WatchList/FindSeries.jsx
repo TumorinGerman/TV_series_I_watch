@@ -5,7 +5,6 @@ import { fetchSeriesByTitle } from "../../../common/utils/fetchData";
 const FindSerias = ({ setSearchResults }) => {
   const seriesSelectId = useId();
   const [seriesTitle, setSeriesTitle] = useState("");
-  console.log("seriesTitle", seriesTitle);
 
   useEffect(() => {
     if (seriesTitle) {

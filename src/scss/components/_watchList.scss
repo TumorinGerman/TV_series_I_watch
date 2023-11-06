@@ -4,35 +4,41 @@
   height: 100vh;
 
   .watchList_container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
-    @media (min-width: 48em) {
-      width: 50%;
-    }
-    .findSeries_container {
-      label {
-        color: white;
-      }
-    }
-    .searchResult_container {
-      display: flex;
-      color: white;
+    .searchSeries_container {
+      width: 80%;
+      margin: 0 auto;
       padding: 20px 0;
-      font-size: 0.875rem;
-      .poster {
-        img {
-          max-width: 100px;
+      @media (min-width: 48em) {
+        width: 50%;
+      }
+      .findSeries_container {
+        label {
+          color: white;
         }
       }
-      .info {
-        margin-left: 10px;
-        .imdb_logo {
-          display: flex;
-          width: 20px;
+      .searchResult_container {
+        display: flex;
+        color: white;
+        padding: 20px 0;
+        font-size: 0.875rem;
+        .poster {
           img {
-            margin-right: 10px;
+            max-width: 100px;
           }
+        }
+        .info {
+          margin: 0 10px;
+          .imdb_logo {
+            display: flex;
+            width: 20px;
+            img {
+              margin-right: 10px;
+            }
+          }
+        }
+        .addToWatchList {
+          display: flex;
+          align-items: center;
         }
       }
     }

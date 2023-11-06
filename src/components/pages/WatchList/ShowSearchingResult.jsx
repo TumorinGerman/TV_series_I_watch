@@ -1,8 +1,7 @@
 import { React } from "react";
-import { Image } from "react-bootstrap";
+import { Image, Button } from "react-bootstrap";
 
 const ShowSearchingResult = ({ searchResults }) => {
-  console.log(searchResults);
   return (
     <div className="searchResult_container">
       {searchResults.Response === "True" ? (
@@ -17,6 +16,11 @@ const ShowSearchingResult = ({ searchResults }) => {
             </div>
             <div>{searchResults.Title}</div>
             <div>{searchResults.Plot}</div>
+          </div>
+          <div className="addToWatchList">
+            <Button variant="warning" size="sm">
+              Add
+            </Button>{" "}
           </div>
         </>
       ) : (
