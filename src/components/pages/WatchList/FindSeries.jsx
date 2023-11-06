@@ -5,11 +5,16 @@ import { fetchSeriesByTitle } from "../../../common/utils/fetchData";
 const FindSerias = ({ setSearchResults }) => {
   const seriesSelectId = useId();
   const [seriesTitle, setSeriesTitle] = useState("");
+  console.log("seriesTitle", seriesTitle);
 
   useEffect(() => {
-    fetchSeriesByTitle("findSeriesByTitle", seriesTitle).then((data) =>
-      setSearchResults(data)
-    );
+    if (seriesTitle) {
+      fetchSeriesByTitle("findSeriesByTitle", seriesTitle).then((data) =>
+        setSearchResults(data)
+      );
+    } else {
+      setSearchResults("");
+    }
   }, [seriesTitle]);
 
   return (
@@ -20,6 +25,7 @@ const FindSerias = ({ setSearchResults }) => {
         name="seriesTitle"
         type="text"
         placeholder="Start write series title here"
+        autocomplete="off"
         onChange={(e) => setSeriesTitle(e.target.value)}
       />
     </div>

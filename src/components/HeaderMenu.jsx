@@ -24,7 +24,9 @@ const HeaderMenu = () => {
             {menuItems.map(({ id, nameOfsection, path }) => {
               return (
                 <li key={id}>
-                  <Link to={path}>{nameOfsection}</Link>
+                  <Link to={path} onClick={() => changeMenuActiveState(false)}>
+                    {nameOfsection}
+                  </Link>
                 </li>
               );
             })}
