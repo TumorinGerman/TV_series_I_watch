@@ -1,10 +1,22 @@
-import { React, useState } from "react";
+import { React, useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import UserStateContext from "../../../context";
 import FindSeries from "./FindSeries";
 import ShowSearchingResult from "./ShowSearchingResult";
 import WatchingSeries from "./WatchingSeries";
 
 const WatchList = () => {
   const [searchResults, setSearchResults] = useState({});
+  const { currentUser } = useContext(UserStateContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/loginForm");
+    }
+  }, []);
+
   return (
     <div className="wrapper">
       <div className="watchList_container">
