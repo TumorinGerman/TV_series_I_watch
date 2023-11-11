@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import UserStateContext from "../../../context";
 import FindSeries from "./FindSeries";
 import ShowSearchingResult from "./ShowSearchingResult";
-import WatchingSeries from "./WatchingSeries";
+import WatchingSeriesList from "./WatchingSeriesList";
 
 const WatchList = () => {
   const [searchResults, setSearchResults] = useState({});
@@ -26,7 +26,7 @@ const WatchList = () => {
             <ShowSearchingResult searchResults={searchResults} />
           )}
         </div>
-        <WatchingSeries />
+        <WatchingSeriesList />
       </div>
     </div>
   );

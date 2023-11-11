@@ -24,7 +24,7 @@ const FindSerias = ({ setSearchResults }) => {
         name="seriesTitle"
         type="text"
         placeholder="Start write series title here"
-        autocomplete="off"
+        autoComplete="off"
         onChange={(e) => setSeriesTitle(e.target.value)}
       />
     </div>
