@@ -1,30 +1,36 @@
 import { React, useEffect, useState, useContext } from "react";
-import ListGroup from "react-bootstrap/ListGroup";
+import Accordion from "react-bootstrap/Accordion";
 import UserStateContext from "../../../context";
 
 import WatchingSeriesItem from "./WatchingSeriesItem";
 import getSeriesFromWatchlist from "../../../services/firebase/utils/getSeriesFromWatchlist";
 
-const WatchingSeriesList = () => {
+const WatchingSeriesList = ({
+  watchlistShouldBeUpdated,
+  setWatchlistShouldBeUpdated,
+}) => {
   const { currentUser } = useContext(UserStateContext);
-  const uid = currentUser?.uid;
+  const currentUserId = currentUser?.uid;
   const [seriesList, setSeriesList] = useState({});
 
-  console.log("seriesList", seriesList);
+  console.log("watchlistShouldBeUpdated", watchlistShouldBeUpdated);
 
   useEffect(() => {
-    getSeriesFromWatchlist(uid).then((data) => {
-      setSeriesList(data);
-    });
-  }, []);
+    if (watchlistShouldBeUpdated) {
+      getSeriesFromWatchlist(currentUserId).then((data) => {
+        setSeriesList(data);
+      });
+      setWatchlistShouldBeUpdated(false);
+    }
+  }, [watchlistShouldBeUpdated]);
 
   return (
     <div className="watchingSeriesList_container">
-      <ListGroup>
-        {Object.keys(seriesList).map(({ Title }) => (
-          <WatchingSeriesItem Title={Title} />
+      <Accordion data-bs-theme="dark">
+        {Object.keys(seriesList).map((imdbID) => (
+          <WatchingSeriesItem key={imdbID} imdbID={seriesList[imdbID]} />
         ))}
-      </ListGroup>
+      </Accordion>
     </div>
   );
 };

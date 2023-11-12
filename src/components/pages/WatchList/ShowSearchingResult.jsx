@@ -1,17 +1,26 @@
-import { React, useContext } from "react";
+import { React, useContext, useState } from "react";
 import { Image, Button } from "react-bootstrap";
 
 import addSeriesToWatchlist from "../../../services/firebase/utils/addSeriesToWatchlist";
 import UserStateContext from "../../../context";
 
-const ShowSearchingResult = ({ searchResults }) => {
+const ShowSearchingResult = ({
+  searchResults,
+  setWatchlistShouldBeUpdated,
+}) => {
   const { currentUser } = useContext(UserStateContext);
-  const uid = currentUser?.uid;
+  const currentUserId = currentUser?.uid;
   const { Response, Poster, imdbRating, Title, Plot, imdbID, totalSeasons } =
     searchResults;
 
-  const handleAddToWatnlistClick = (uid, imdbID, Title, totalSeasons) => {
-    addSeriesToWatchlist(uid, imdbID, Title, totalSeasons);
+  const handleAddToWatnlistClick = (
+    currentUserId,
+    imdbID,
+    Title,
+    totalSeasons
+  ) => {
+    addSeriesToWatchlist(currentUserId, imdbID, Title, totalSeasons);
+    setWatchlistShouldBeUpdated(true);
   };
 
   return (
@@ -34,7 +43,12 @@ const ShowSearchingResult = ({ searchResults }) => {
               variant="warning"
               size="sm"
               onClick={() =>
-                handleAddToWatnlistClick(uid, imdbID, Title, totalSeasons)
+                handleAddToWatnlistClick(
+                  currentUserId,
+                  imdbID,
+                  Title,
+                  totalSeasons
+                )
               }
             >
               Add

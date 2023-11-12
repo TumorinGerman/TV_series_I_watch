@@ -10,6 +10,8 @@ const addSeriesToWatchlist = async (uid, imdbID, Title, totalSeasons) => {
       [imdbID]: {
         Title: Title,
         totalSeasons: totalSeasons,
+        currentSeason: 1,
+        currentEpisode: 1,
       },
     },
     { merge: true }

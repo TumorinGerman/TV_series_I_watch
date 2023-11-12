@@ -45,6 +45,24 @@
     .watchingSeriesList_container {
       width: 90%;
       margin: 0 auto;
+      font-size: 0.875rem;
+
+      .watchingSeriesItem_info {
+        width: 100%;
+        display: flex;
+        b {
+          color: white;
+        }
+        .watchingSeriesItem_title {
+          width: 50%;
+          margin-right: 10px;
+        }
+        .watchingSeriesItem_currentSeason,
+        .watchingSeriesItem_currentEpisode {
+          width: 20%;
+          margin-right: 10px;
+        }
+      }
     }
   }
 }

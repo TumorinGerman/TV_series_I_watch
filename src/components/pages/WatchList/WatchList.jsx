@@ -8,6 +8,8 @@ import WatchingSeriesList from "./WatchingSeriesList";
 
 const WatchList = () => {
   const [searchResults, setSearchResults] = useState({});
+  const [watchlistShouldBeUpdated, setWatchlistShouldBeUpdated] =
+    useState(true);
   const { currentUser } = useContext(UserStateContext);
   const navigate = useNavigate();
 
@@ -23,10 +25,16 @@ const WatchList = () => {
         <div className="searchSeries_container">
           <FindSeries setSearchResults={setSearchResults} />
           {searchResults && (
-            <ShowSearchingResult searchResults={searchResults} />
+            <ShowSearchingResult
+              searchResults={searchResults}
+              setWatchlistShouldBeUpdated={setWatchlistShouldBeUpdated}
+            />
           )}
         </div>
-        <WatchingSeriesList />
+        <WatchingSeriesList
+          watchlistShouldBeUpdated={watchlistShouldBeUpdated}
+          setWatchlistShouldBeUpdated={setWatchlistShouldBeUpdated}
+        />
       </div>
     </div>
   );
