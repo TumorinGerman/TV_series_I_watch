@@ -13,10 +13,10 @@ const WatchingSeriesList = ({
   const currentUserId = currentUser?.uid;
   const [seriesList, setSeriesList] = useState({});
 
-  console.log("watchlistShouldBeUpdated", watchlistShouldBeUpdated);
+  console.log("currentUserId", currentUserId);
 
   useEffect(() => {
-    if (watchlistShouldBeUpdated) {
+    if (watchlistShouldBeUpdated && currentUserId) {
       getSeriesFromWatchlist(currentUserId).then((data) => {
         setSeriesList(data);
       });
