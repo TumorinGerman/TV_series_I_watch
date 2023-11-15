@@ -17,6 +17,7 @@ const WatchList = () => {
     if (!currentUser) {
       navigate("/loginForm");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

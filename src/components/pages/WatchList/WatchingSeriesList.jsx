@@ -13,8 +13,6 @@ const WatchingSeriesList = ({
   const currentUserId = currentUser?.uid;
   const [seriesList, setSeriesList] = useState({});
 
-  console.log("currentUserId", currentUserId);
-
   useEffect(() => {
     if (watchlistShouldBeUpdated && currentUserId) {
       getSeriesFromWatchlist(currentUserId).then((data) => {
@@ -22,6 +20,7 @@ const WatchingSeriesList = ({
       });
       setWatchlistShouldBeUpdated(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watchlistShouldBeUpdated]);
 
   return (

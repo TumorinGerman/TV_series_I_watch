@@ -1,13 +1,15 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 
+import CurrentSeasonEpisodeChanger from "./CurrentSeasonEpisodeChanger";
+
 const WatchingSeriesItem = ({ imdbID }) => {
   return (
     <Accordion.Item eventKey={imdbID}>
       <Accordion.Header>
         <div className="watchingSeriesItem_info">
           <div className="watchingSeriesItem_title">
-            <b>{imdbID.Title}</b>
+            <b>{imdbID.seriesInfo.title}</b>
           </div>
           <div className="watchingSeriesItem_currentSeason">
             Current Season: <b>{imdbID.currentSeason}</b>
@@ -17,7 +19,11 @@ const WatchingSeriesItem = ({ imdbID }) => {
           </div>
         </div>
       </Accordion.Header>
-      <Accordion.Body>Bla-bla-bla</Accordion.Body>
+      <Accordion.Body>
+        <div className="change_currentPosition">
+          <CurrentSeasonEpisodeChanger />
+        </div>
+      </Accordion.Body>
     </Accordion.Item>
   );
 };

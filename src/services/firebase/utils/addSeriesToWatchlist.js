@@ -1,15 +1,14 @@
 import { db } from "../firebase_config";
 import { doc, setDoc } from "firebase/firestore/lite";
 
-const addSeriesToWatchlist = async (uid, imdbID, Title, totalSeasons) => {
+const addSeriesToWatchlist = async (uid, imdbID, seriesInfo) => {
   // const watchlistRef = doc(db, "watchlist", uid);
 
   await setDoc(
     doc(db, "watchlist", uid),
     {
       [imdbID]: {
-        Title: Title,
-        totalSeasons: totalSeasons,
+        seriesInfo: seriesInfo,
         currentSeason: 1,
         currentEpisode: 1,
       },
