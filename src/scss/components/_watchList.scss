@@ -63,6 +63,17 @@
           margin-right: 10px;
         }
       }
+      .change_currentPosition {
+        display: flex;
+        justify-content: space-around;
+        .change_currentSeason,
+        .change_currentEpisode {
+          display: flex;
+          b {
+            margin-right: 5px;
+          }
+        }
+      }
     }
   }
 }
