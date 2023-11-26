@@ -14,8 +14,22 @@ const CurrentSeasonEpisodeChanger = ({
     (season) => Number(season) + 1
   );
 
-  const handleItemsSelected = (eventKey) => {
-    setCurrSeason(eventKey);
+  const howMachEpisodesInCurrentSeason = seasons[currSeason - 1].episode_count;
+  const episodes = [];
+  for (let index = 1; index <= howMachEpisodesInCurrentSeason; index++) {
+    episodes.push(<Dropdown.Item eventKey={index}>{index}</Dropdown.Item>);
+  }
+
+  const handleDropdownSelect = (dropdownType) => {
+    return (eventKey) => {
+      if (dropdownType === "season") {
+        console.log("season", eventKey);
+        setCurrSeason(eventKey);
+      } else {
+        console.log("episode", eventKey);
+        setCurrEpisode(eventKey);
+      }
+    };
   };
 
   return (
@@ -26,7 +40,8 @@ const CurrentSeasonEpisodeChanger = ({
           id="dropdown-basic-button"
           size="sm"
           title={currSeason}
-          onSelect={(eventKey) => handleItemsSelected(eventKey)}
+          //   onSelect={(eventKey) => handleItemsSelected(eventKey)}
+          onSelect={handleDropdownSelect("season")}
         >
           {displayedSeasons.map((season) => (
             <Dropdown.Item eventKey={season}>{season}</Dropdown.Item>
@@ -39,11 +54,12 @@ const CurrentSeasonEpisodeChanger = ({
           id="dropdown-basic-button"
           size="sm"
           title={currEpisode}
-          onSelect={(eventKey) => handleItemsSelected(eventKey)}
+          onSelect={handleDropdownSelect("episode")}
         >
-          {Object.keys(seasons).map((season) => (
+          {episodes}
+          {/* {displayedSeasons.map((season) => (
             <Dropdown.Item eventKey={season}>{season}</Dropdown.Item>
-          ))}
+          ))} */}
         </DropdownButton>
       </div>
     </div>
