@@ -18,7 +18,7 @@ const ShowSearchingResult = ({
       "seriesInformation",
       imdbID
     );
-    addSeriesToWatchlist(currentUserId, imdbID, seriesInfo);
+    await addSeriesToWatchlist(currentUserId, imdbID, seriesInfo);
     setWatchlistShouldBeUpdated(true);
   };
 

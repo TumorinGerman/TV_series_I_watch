@@ -23,10 +23,8 @@ const CurrentSeasonEpisodeChanger = ({
   const handleDropdownSelect = (dropdownType) => {
     return (eventKey) => {
       if (dropdownType === "season") {
-        console.log("season", eventKey);
         setCurrSeason(eventKey);
       } else {
-        console.log("episode", eventKey);
         setCurrEpisode(eventKey);
       }
     };
