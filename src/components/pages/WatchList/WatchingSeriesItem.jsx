@@ -5,7 +5,6 @@ import CurrentSeasonEpisodeChanger from "./CurrentSeasonEpisodeChanger";
 
 const WatchingSeriesItem = ({ imdbID }) => {
   const { currentSeason, currentEpisode, seriesInfo } = imdbID;
-  console.log("seriesInfo", seriesInfo);
   const { title, seasons } = seriesInfo;
   return (
     <Accordion.Item eventKey={imdbID}>

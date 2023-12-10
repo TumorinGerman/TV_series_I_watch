@@ -64,8 +64,24 @@
         }
       }
       .change_currentPosition {
-        display: flex;
-        justify-content: space-around;
+        @media (max-width: 21em) {
+          width: 300;
+        }
+
+        @media (max-width: 26em) {
+          width: 400;
+        }
+
+        @media (min-width: 48em) {
+          display: flex;
+          justify-content: space-around;
+          .button_container {
+            display: flex;
+            .button_deleteFromWatchList {
+              margin-left: 20px;
+            }
+          }
+        }
         .change_currentSeason,
         .change_currentEpisode {
           display: flex;

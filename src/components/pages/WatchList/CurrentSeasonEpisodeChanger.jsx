@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { Button } from "react-bootstrap";
 
 const CurrentSeasonEpisodeChanger = ({
   seasons,
@@ -30,35 +31,57 @@ const CurrentSeasonEpisodeChanger = ({
     };
   };
 
+  const handleSaveChangesCurrentEpisodeOrSeason = () => {
+    console.log("Save");
+  };
+
   return (
     <div className="change_currentPosition">
-      <div className="change_currentSeason">
-        <b>Change current season:</b>
-        <DropdownButton
-          id="dropdown-basic-button"
-          size="sm"
-          title={currSeason}
-          //   onSelect={(eventKey) => handleItemsSelected(eventKey)}
-          onSelect={handleDropdownSelect("season")}
-        >
-          {displayedSeasons.map((season) => (
-            <Dropdown.Item eventKey={season}>{season}</Dropdown.Item>
-          ))}
-        </DropdownButton>
-      </div>
-      <div className="change_currentEpisode">
-        <b>Change current episode:</b>
-        <DropdownButton
-          id="dropdown-basic-button"
-          size="sm"
-          title={currEpisode}
-          onSelect={handleDropdownSelect("episode")}
-        >
-          {episodes}
-          {/* {displayedSeasons.map((season) => (
+      <div className="changers_container">
+        <div className="change_currentSeason">
+          <b>Change current season:</b>
+          <DropdownButton
+            id="dropdown-basic-button"
+            size="sm"
+            title={currSeason}
+            //   onSelect={(eventKey) => handleItemsSelected(eventKey)}
+            onSelect={handleDropdownSelect("season")}
+          >
+            {displayedSeasons.map((season) => (
+              <Dropdown.Item eventKey={season}>{season}</Dropdown.Item>
+            ))}
+          </DropdownButton>
+        </div>
+        <div className="change_currentEpisode">
+          <b>Change current episode:</b>
+          <DropdownButton
+            id="dropdown-basic-button"
+            size="sm"
+            title={currEpisode}
+            onSelect={handleDropdownSelect("episode")}
+          >
+            {episodes}
+            {/* {displayedSeasons.map((season) => (
             <Dropdown.Item eventKey={season}>{season}</Dropdown.Item>
           ))} */}
-        </DropdownButton>
+          </DropdownButton>
+        </div>
+      </div>
+      <div className="button_container">
+        <div className="button_saveChanges">
+          <Button
+            variant="warning"
+            size="sm"
+            onClick={() => handleSaveChangesCurrentEpisodeOrSeason()}
+          >
+            Save
+          </Button>{" "}
+        </div>
+        <div className="button_deleteFromWatchList">
+          <Button variant="danger" size="sm">
+            Delete Series
+          </Button>{" "}
+        </div>
       </div>
     </div>
   );
