@@ -3,13 +3,18 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { Button } from "react-bootstrap";
 
+import updateWatchlistPosition from "../../../services/firebase/utils/updateWatchlistPosition";
+
 const CurrentSeasonEpisodeChanger = ({
   seasons,
-  currentSeason,
-  currentEpisode,
+  seasonState,
+  setSeasonState,
+  episodeState,
+  setEpisodeState,
+  imdbid,
 }) => {
-  const [currSeason, setCurrSeason] = useState(currentSeason);
-  const [currEpisode, setCurrEpisode] = useState(currentEpisode);
+  const [currSeason, setCurrSeason] = useState(seasonState);
+  const [currEpisode, setCurrEpisode] = useState(episodeState);
 
   const displayedSeasons = Object.keys(seasons).map(
     (season) => Number(season) + 1
@@ -31,8 +36,10 @@ const CurrentSeasonEpisodeChanger = ({
     };
   };
 
-  const handleSaveChangesCurrentEpisodeOrSeason = () => {
-    console.log("Save");
+  const handleSaveChangesCurrentEpisodeOrSeason = async () => {
+    await updateWatchlistPosition(currSeason, currEpisode, imdbid);
+    setSeasonState(currSeason);
+    setEpisodeState(currEpisode);
   };
 
   return (

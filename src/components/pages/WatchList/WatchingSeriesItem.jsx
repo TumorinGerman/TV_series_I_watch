@@ -1,11 +1,14 @@
-import React from "react";
+import { React, useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 
 import CurrentSeasonEpisodeChanger from "./CurrentSeasonEpisodeChanger";
 
 const WatchingSeriesItem = ({ imdbID }) => {
   const { currentSeason, currentEpisode, seriesInfo } = imdbID;
-  const { title, seasons } = seriesInfo;
+  const [seasonState, setSeasonState] = useState(currentSeason);
+  const [episodeState, setEpisodeState] = useState(currentEpisode);
+  const { title, seasons, imdbid } = seriesInfo;
+
   return (
     <Accordion.Item eventKey={imdbID}>
       <Accordion.Header>
@@ -14,18 +17,21 @@ const WatchingSeriesItem = ({ imdbID }) => {
             <b>{title}</b>
           </div>
           <div className="watchingSeriesItem_currentSeason">
-            Current Season: <b>{currentSeason}</b>
+            Current Season: <b>{seasonState}</b>
           </div>
           <div className="watchingSeriesItem_currentEpisode">
-            Current Episode: <b>{currentEpisode}</b>
+            Current Episode: <b>{episodeState}</b>
           </div>
         </div>
       </Accordion.Header>
       <Accordion.Body>
         <CurrentSeasonEpisodeChanger
           seasons={seasons}
-          currentSeason={currentSeason}
-          currentEpisode={currentEpisode}
+          seasonState={seasonState}
+          setSeasonState={setSeasonState}
+          episodeState={episodeState}
+          setEpisodeState={setEpisodeState}
+          imdbid={imdbid}
         />
       </Accordion.Body>
     </Accordion.Item>
