@@ -84,11 +84,6 @@ const CurrentSeasonEpisodeChanger = ({
             Save
           </Button>{" "}
         </div>
-        <div className="button_deleteFromWatchList">
-          <Button variant="danger" size="sm">
-            Delete Series
-          </Button>{" "}
-        </div>
       </div>
     </div>
   );

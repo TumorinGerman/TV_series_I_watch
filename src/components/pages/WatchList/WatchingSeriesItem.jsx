@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import Accordion from "react-bootstrap/Accordion";
+import { Button, Accordion } from "react-bootstrap";
 
 import CurrentSeasonEpisodeChanger from "./CurrentSeasonEpisodeChanger";
 
@@ -16,11 +16,18 @@ const WatchingSeriesItem = ({ imdbID }) => {
           <div className="watchingSeriesItem_title">
             <b>{title}</b>
           </div>
-          <div className="watchingSeriesItem_currentSeason">
-            Current Season: <b>{seasonState}</b>
+          <div className="watchingSeriesItem_currentPosition">
+            <div className="watchingSeriesItem_currentSeason">
+              Current Season: <b>{seasonState}</b>
+            </div>
+            <div className="watchingSeriesItem_currentEpisode">
+              Current Episode: <b>{episodeState}</b>
+            </div>
           </div>
-          <div className="watchingSeriesItem_currentEpisode">
-            Current Episode: <b>{episodeState}</b>
+          <div className="button_deleteFromWatchList">
+            <Button variant="danger" size="sm">
+              Delete
+            </Button>{" "}
           </div>
         </div>
       </Accordion.Header>

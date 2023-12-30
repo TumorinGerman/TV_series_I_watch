@@ -50,16 +50,36 @@
       .watchingSeriesItem_info {
         width: 100%;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width: 48em) {
+          flex-direction: row;
+          .button_deleteFromWatchList {
+            margin-right: 20px;
+          }
+        }
         b {
           color: white;
         }
         .watchingSeriesItem_title {
           width: 50%;
-          margin-right: 10px;
+          text-align: center;
         }
-        .watchingSeriesItem_currentSeason,
-        .watchingSeriesItem_currentEpisode {
-          margin-right: 10px;
+        .watchingSeriesItem_currentPosition {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .watchingSeriesItem_currentSeason,
+          .watchingSeriesItem_currentEpisode {
+            margin: 10px 10px;
+          }
+          @media (min-width: 48em) {
+            justify-content: space-around;
+            .watchingSeriesItem_currentSeason,
+            .watchingSeriesItem_currentEpisode {
+              margin: 0px 10px;
+            }
+          }
         }
       }
       .change_currentPosition {
