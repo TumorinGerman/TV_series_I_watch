@@ -2,7 +2,11 @@ import React from "react";
 import Rating from "./Rating";
 
 function Main() {
-  return <div className="container_main">{/* <Rating /> */}</div>; //comented because API not given rating
+  return (
+    <div className="container_main">
+      <Rating />
+    </div>
+  );
 }
 
 export default Main;
