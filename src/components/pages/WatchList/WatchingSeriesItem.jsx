@@ -2,12 +2,18 @@ import { React, useState } from "react";
 import { Button, Accordion } from "react-bootstrap";
 
 import CurrentSeasonEpisodeChanger from "./CurrentSeasonEpisodeChanger";
+import deleteSeriesFromWatchlist from "../../../services/firebase/utils/deleteSeriesFromWatchlist";
 
 const WatchingSeriesItem = ({ imdbID }) => {
   const { currentSeason, currentEpisode, seriesInfo } = imdbID;
   const [seasonState, setSeasonState] = useState(currentSeason);
   const [episodeState, setEpisodeState] = useState(currentEpisode);
   const { title, seasons, imdbid } = seriesInfo;
+
+  const handleDeleteFromWatchlist = (imdbid) => {
+    console.log(imdbid);
+    deleteSeriesFromWatchlist(imdbid);
+  };
 
   return (
     <Accordion.Item eventKey={imdbID}>
@@ -25,7 +31,11 @@ const WatchingSeriesItem = ({ imdbID }) => {
             </div>
           </div>
           <div className="button_deleteFromWatchList">
-            <Button variant="danger" size="sm">
+            <Button
+              variant="danger"
+              size="sm"
+              onClick={() => handleDeleteFromWatchlist(imdbid)}
+            >
               Delete
             </Button>{" "}
           </div>
