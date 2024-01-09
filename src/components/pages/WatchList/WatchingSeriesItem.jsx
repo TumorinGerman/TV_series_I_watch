@@ -4,15 +4,15 @@ import { Button, Accordion } from "react-bootstrap";
 import CurrentSeasonEpisodeChanger from "./CurrentSeasonEpisodeChanger";
 import deleteSeriesFromWatchlist from "../../../services/firebase/utils/deleteSeriesFromWatchlist";
 
-const WatchingSeriesItem = ({ imdbID }) => {
+const WatchingSeriesItem = ({ imdbID, setWatchlistShouldBeUpdated }) => {
   const { currentSeason, currentEpisode, seriesInfo } = imdbID;
   const [seasonState, setSeasonState] = useState(currentSeason);
   const [episodeState, setEpisodeState] = useState(currentEpisode);
   const { title, seasons, imdbid } = seriesInfo;
 
-  const handleDeleteFromWatchlist = (imdbid) => {
-    console.log(imdbid);
-    deleteSeriesFromWatchlist(imdbid);
+  const handleDeleteFromWatchlist = async (imdbid) => {
+    await deleteSeriesFromWatchlist(imdbid);
+    setWatchlistShouldBeUpdated(true);
   };
 
   return (

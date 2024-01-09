@@ -27,7 +27,11 @@ const WatchingSeriesList = ({
     <div className="watchingSeriesList_container">
       <Accordion data-bs-theme="dark">
         {Object.keys(seriesList).map((imdbID) => (
-          <WatchingSeriesItem key={imdbID} imdbID={seriesList[imdbID]} />
+          <WatchingSeriesItem
+            key={imdbID}
+            imdbID={seriesList[imdbID]}
+            setWatchlistShouldBeUpdated={setWatchlistShouldBeUpdated}
+          />
         ))}
       </Accordion>
     </div>
