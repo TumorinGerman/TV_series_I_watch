@@ -1,6 +1,6 @@
-https://tv-series-i-watch.vercel.app/ .
-Developing in process.
-During the development of the site used the principle "mobile first".
+- https://tv-series-i-watch.vercel.app/ .
+- Developing in process.
+- During the development of the site used the principle "mobile first".
 ### In this project, I specifically did not do e-mail verification, for the possibility of test registration.
 
 
