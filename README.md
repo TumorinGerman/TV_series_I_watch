@@ -1,5 +1,9 @@
+https://tv-series-i-watch.vercel.app/
 Developing in process.
 During the development of the site used the principle "mobile first".
+### In this project, I specifically did not do e-mail verification, for the possibility of test registration.
+
+
 # Goal of the project
 A website to remind you where you finished watching the show. 
 If you have finished watching, it will remind you if there are new episodes or seasons.
