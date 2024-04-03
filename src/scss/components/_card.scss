@@ -2,9 +2,35 @@
 
 .card {
   font-size: 0.75rem;
-  .imdb_logo {
-    img {
-      width: 24px;
+  .card_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .imdb_info {
+      display: flex;
+      .imdb_logo {
+        img {
+          width: 24px;
+        }
+      }
+      .imdbRating {
+        margin-left: 5px;
+      }
+    }
+    .button_addToWL {
+      .button_toWatchList {
+        height: 24px;
+        border-radius: 5px;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        background: #f4b20a;
+        border: none;
+      }
+      .button_toWatchList:hover {
+        background: $button;
+      }
     }
   }
 }
