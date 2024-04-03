@@ -18,16 +18,19 @@ const Rating = () => {
         <CardGroup>
           <Container fluid>
             <Row xs={2} sm={3} md={4} lg={5} xl={6} xxl={8} className="g-4">
-              {ratingData.map(({ Title, Poster, Plot, imdbRating }, idx) => (
-                <Col key={idx}>
-                  <SeriesCard
-                    title={Title}
-                    poster={Poster}
-                    plot={Plot}
-                    imdbRating={imdbRating}
-                  />
-                </Col>
-              ))}
+              {ratingData.map(
+                ({ Title, Poster, Plot, imdbRating, imdbID }, idx) => (
+                  <Col key={idx}>
+                    <SeriesCard
+                      title={Title}
+                      poster={Poster}
+                      plot={Plot}
+                      imdbRating={imdbRating}
+                      imdbID={imdbID}
+                    />
+                  </Col>
+                )
+              )}
             </Row>
           </Container>
         </CardGroup>
