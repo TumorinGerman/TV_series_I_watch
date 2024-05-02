@@ -1,5 +1,6 @@
 import { React, useContext } from "react";
 import { Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 import addSeriesToWatchlist from ".//../../../services/firebase/utils/addSeriesToWatchlist";
 import { fetchAllSeriesInformation } from "../../../common/utils/fetchData";
@@ -9,6 +10,7 @@ const SeriesCard = (props) => {
   const { currentUser } = useContext(UserStateContext);
   const currentUserId = currentUser?.uid;
   const { title, plot, imdbRating, poster, imdbID } = props;
+  const navigate = useNavigate();
 
   const addSeriesToWatchListFromRatingPage = async () => {
     if (currentUserId) {
@@ -16,10 +18,8 @@ const SeriesCard = (props) => {
         "seriesInformation",
         imdbID
       );
-      console.log(seriesInfo);
-      console.log(imdbID);
-      console.log(currentUserId);
       await addSeriesToWatchlist(currentUserId, imdbID, seriesInfo);
+      navigate("/watchList");
     } else {
       console.log("Login please");
     }
