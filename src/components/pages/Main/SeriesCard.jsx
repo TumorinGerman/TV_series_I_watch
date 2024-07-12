@@ -21,7 +21,7 @@ const SeriesCard = (props) => {
       await addSeriesToWatchlist(currentUserId, imdbID, seriesInfo);
       navigate("/watchList");
     } else {
-      console.log("Login please");
+      navigate("/loginForm");
     }
   };
   return (
